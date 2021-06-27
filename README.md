@@ -1,27 +1,27 @@
-# 概要
-名前を入力したらメッセージのやりとりができるようになる。  
-メッセージはサーバーに保存していないので、過去のメッセージは見えない。  
+# Overview
+After entering the name, you will be able to exchange messages.
+Since the message is not stored on the server, past messages cannot be seen.  
 
-# 起動
+# Start up
 $ git clone https://github.com/tayusa/grpc-web-simple-chat.git  
 $ cd grpc-web-simple-chat  
 $ docker-compose up -d --build  
 $ chromium http://localhost:8080  
 
-# protoファイルをコンパイル
+# proto "Compile the file"
 $ sudo paman -S protobuf  
 $ go get -u github.com/golang/protobuf/protoc-gen-go  
 $ npm install -g protoc-gen-grpc-web  
 $ make build
 
-# 検証
-curlの代わりgrpc-cli  
+# Verification
+grpc-cli instead of curl
 $ sudo paman -S grpc-cli  
 $ grpc_cli ls localhost:50051 chat.ChatService -l  
 $ grpc_cli call localhost:50051 ChatService.Login 'name: "John"'  
 $ grpc_cli call localhost:50051 ChatService.SendMessage 'content: "Hey"'  
 
-# 参考URL
+# Reference URL
 https://grpc.io/docs/languages/go/quickstart  
 https://developers.google.com/protocol-buffers/docs/reference/go-generated  
 https://github.com/grpc/grpc-go  

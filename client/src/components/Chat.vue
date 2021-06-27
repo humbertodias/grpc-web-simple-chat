@@ -2,7 +2,7 @@
   <section>
     <form v-if="!userToken" class="name-input">
       <input v-model="userName" />
-      <button @click="login">名前を入力</button>
+      <button @click="login">Enter name</button>
     </form>
     <div v-else>
       <ul class="messages">
@@ -26,7 +26,7 @@
       </ul>
       <form class="message-input">
         <input v-model="message" />
-        <button @click="sendMessage">送信</button>
+        <button @click="sendMessage">Send</button>
       </form>
     </div>
   </section>
